@@ -1,5 +1,6 @@
 const mongoose=require("mongoose")
-const connstring="mongodb+srv://sashanktadimeti4:sashank@cluster0.mkna2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const connstring=process.env.MONGO_URI
+console.log(connstring)
 const connectDb=async()=>{
      return await mongoose.connect(connstring)
 }
