@@ -57,6 +57,9 @@ requestRouter.post('/review/:status/:requestId', userAuth, async (req, res) => {
       throw new Error("the connection record doesn't exist!!!")
     }
     connectionrequest.status = status
+
+
+    
     await connectionrequest.save()
     res.status(400).json({message : `you have accepted ${connectionrequest.fromUserId}`})
   } catch (err) {
