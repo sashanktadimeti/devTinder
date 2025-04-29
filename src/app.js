@@ -7,9 +7,11 @@ app.use(cookieParser());
 const {authRouter} = require("./routes/auth")
 const {profileRouter} = require("./routes/profile")
 const {requestRouter} = require("./routes/requests")
+const {userInfoRouter} = require("./routes/userInfo")
 app.use("/",authRouter)
 app.use("/",profileRouter)
 app.use("/",requestRouter)
+app.use("/",userInfoRouter)
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 connectDb(process.env.MONGO_URI)
