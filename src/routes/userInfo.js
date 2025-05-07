@@ -84,5 +84,3 @@ userInfoRouter.get("/feed", userAuth, async (req, res) => {
   }
 });
 module.exports = { userInfoRouter };
-console.log("Jai Hind!!!")
-console.log("mumbai indians!!")
