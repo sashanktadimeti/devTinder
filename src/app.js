@@ -26,4 +26,5 @@ connectDb(process.env.MONGO_URI)
     console.log(
       "Can't create a server due to unsuccessful database connection..."
     );
+    console.log("history")
   });
