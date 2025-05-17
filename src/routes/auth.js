@@ -35,7 +35,7 @@ authRouter.post("/login", async (req, res) => {
     }
     const token = await user.getJwt();
     res.cookie("token", token);
-    res.status(200).send(`welcome to devTinder.${req.body.emailId}`);
+    res.status(200).send(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
