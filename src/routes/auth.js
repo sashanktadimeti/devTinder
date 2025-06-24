@@ -29,6 +29,9 @@ authRouter.post("/login", async (req, res) => {
       throw new Error("emailid is not valid..");
     }
     const user = await User.findOne({ emailId });
+    if(!user){
+      throw new Error("please do register!!!")
+    }
     const isCorrectPassword = await user.validatePassword(password);
     if (!isCorrectPassword) {
       throw new Error("invalid password...");
