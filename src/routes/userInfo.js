@@ -73,6 +73,7 @@ userInfoRouter.get("/feed", userAuth, async (req, res) => {
       hideSet.add(row.fromUserId.toString());
       hideSet.add(row.toUserId.toString());
     });
+    hideSet.add(loggedinuser._id.toString())
     const showUsers = await User.find({
       _id: { $nin: Array.from(hideSet) },
     })
