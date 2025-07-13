@@ -58,7 +58,7 @@ requestRouter.post('/review/:status/:requestId', userAuth, async (req, res) => {
     }
     connectionrequest.status = status
     await connectionrequest.save()
-    res.status(400).json({message : `you have accepted ${connectionrequest.fromUserId}`})
+    res.status(400).json({message : `you have accepted ${connectionrequest.fromUserId.firstName}`})
   } catch (err) {
     res.status(404).json({ message: err.message })
   }
