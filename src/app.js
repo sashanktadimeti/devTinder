@@ -40,8 +40,8 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 // Start serevr
 connectDb(process.env.MONGO_URI)
   .then(() => {
-    app.listen(3000, () => {
-      console.log("Server running at http://localhost:3000");
+    app.listen(3000, () =>{
+      console.log("Server created successfully");
     });
   })
   .catch((err) => {
