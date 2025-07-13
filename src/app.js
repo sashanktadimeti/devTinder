@@ -19,7 +19,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 connectDb(process.env.MONGO_URI)
   .then(() => {
     app.listen(3000, () => {
-      console.log("Server created successfully..");
+      console.log("Server created successfully");
     });
   })
   .catch((err) => {
