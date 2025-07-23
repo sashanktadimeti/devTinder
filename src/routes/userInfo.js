@@ -39,6 +39,7 @@ userInfoRouter.get("/user/connections", userAuth, async (req, res) => {
         "photoUrl",
         "age",
         "skills",
+        "about"
       ])
       .populate("toUserId", [
         "firstName",
@@ -46,6 +47,7 @@ userInfoRouter.get("/user/connections", userAuth, async (req, res) => {
         "photoUrl",
         "age",
         "skills",
+        "about"
       ]);
     const data = connectionRequests.map((row) => {
       if (row.fromUserId._id.equals(loggedinuser._id)) {
