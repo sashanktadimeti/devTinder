@@ -15,7 +15,7 @@ requestRouter.post(
         throw new Error('invalid request ....')
       }
       const status = req.params.status
-      const allowed = ['ignored', 'interested']
+      const allowed = ['rejected', 'interested']
       if (!allowed.includes(status)) {
         throw new Error('status in not valid')
       }
@@ -52,13 +52,13 @@ requestRouter.post('/review/:status/:requestId', userAuth, async (req, res) => {
     if (!allowed.includes(status)) {
       throw new Error('invalid status code...')
     }
-    const connectionrequest = await ConnectionRequest.findOne({_id: requestId, toUserId: req.user._id, status: "interested"})
+    const connectionrequest = await ConnectionRequest.findOne({fromUserId: requestId, toUserId: req.user._id, status: "interested"})
     if(!connectionrequest){
       throw new Error("the connection record doesn't exist!!!")
     }
     connectionrequest.status = status
     await connectionrequest.save()
-    res.status(400).json({message : `you have accepted ${connectionrequest.fromUserId.firstName}`})
+    res.status(200).json({message : `you have accepted ${connectionrequest.fromUserId.firstName}`})
   } catch (err) {
     res.status(404).json({ message: err.message })
   }

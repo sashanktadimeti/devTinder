@@ -6,7 +6,7 @@ const userAuth = async (req, res, next) => {
     if (!token) {
       throw new Error("request is not valid...");
     }
-    const decodedMessage = await jwt.verify(token, "devTinder@#970");
+    const decodedMessage = await jwt.verify(token, process.env.JWT_SECRET)
     const { _id } = decodedMessage;
     req.user = await user.findById({ _id });
     if (!req.user) {
