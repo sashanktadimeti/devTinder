@@ -60,7 +60,7 @@ const userSchema = new mongoose.Schema(
     skills: {
       type: [String],
     },
-    about: {
+    about:{
       type: String
     }
   },

@@ -14,10 +14,11 @@ profileRouter.get("/profile", userAuth, async (req, res) => {
 profileRouter.patch("/profile/edit", userAuth, async (req, res) => {
   try {
     if (!validateEditProfileData(req)) {
-      throw new Error("Invalid edit request....");
+      throw new Error("You are not allowed to change the fiels which are uneditable");
     }
     const user = req.user;
     Object.keys(req.body).forEach((key) => {
+      console.log(key)
       user[key] = req.body[key];
     });
     await user.save();
