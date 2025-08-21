@@ -1,2 +1,1 @@
-cron = require('node-cron');
-console.log('Cronjob module loaded');
+const cron = require('node-cron');
